@@ -9,7 +9,7 @@ export default function Web3Providers({
 }) {
   return (
     <PrivyProvider
-      appId=""
+      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ""}
       config={{
         // Customize Privy's appearance in your app
         appearance: {
@@ -18,8 +18,9 @@ export default function Web3Providers({
           logo: "https://your-logo-url",
         },
         // Create embedded wallets for users who don't have a wallet
+        loginMethods: ["farcaster"],
         embeddedWallets: {
-          createOnLogin: "users-without-wallets",
+          createOnLogin: "all-users",
         },
       }}
     >

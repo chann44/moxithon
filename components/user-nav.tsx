@@ -12,22 +12,44 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "-/components/ui/dropdown-menu";
+import {
+  useLogout,
+  usePrivy,
+  useExperimentalFarcasterSigner,
+  FarcasterWithMetadata,
+} from "@privy-io/react-auth";
+import { useRouter } from "next/navigation";
 
 export function UserNav() {
+  const router = useRouter();
+  const { user } = usePrivy();
+  const { logout } = useLogout({
+    onSuccess: () => {
+      console.log("🫥 ✅ logOut onSuccess");
+      router.push("/");
+    },
+  });
+  const farcasterAccount = user?.linkedAccounts.find(
+    (a) => a.type === "farcaster"
+  ) as FarcasterWithMetadata;
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8">
-            <AvatarImage src="/avatars/01.png" alt="@shadcn" />
-            <AvatarFallback>SC</AvatarFallback>
+            <AvatarImage src={farcasterAccount?.pfp || ""} alt="@shadcn" />
+            <AvatarFallback>
+              {farcasterAccount?.displayName?.split("").slice(0, 1)}
+            </AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56" align="end" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">0x...34</p>
+            <p className="text-sm font-medium leading-none">
+              {farcasterAccount?.username}
+            </p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -38,7 +60,7 @@ export function UserNav() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={logout}>
           Disconnect
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
