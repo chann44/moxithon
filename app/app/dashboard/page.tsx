@@ -1,3 +1,15 @@
+import { FansTokenTable } from "./fans-token-table";
+
 export default function DashboardPage() {
-  return <h1>Dashboard Page</h1>;
+  return (
+    <main>
+      <div className="flex flex-col gap-y-1">
+        <h1 className="text-xl font-medium">Dashboard</h1>
+        <p className="text-sm text-muted-foreground">
+          View Your Fans Token Here
+        </p>
+      </div>
+      <FansTokenTable />
+    </main>
+  );
 }
