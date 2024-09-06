@@ -36,6 +36,7 @@ import {
   TableRow,
 } from "-/components/ui/table";
 import { FansTokenFilterType } from "./token-type-filter";
+import { TradeModal } from "./trade-modal";
 
 const data: FanToken[] = [
   {
@@ -170,8 +171,8 @@ export const columns: ColumnDef<FanToken>[] = [
   },
   {
     accessorKey: "symbol",
-    header: "Symbol",
-    cell: ({ row }) => <div>{row.getValue("symbol")}</div>,
+    header: "",
+    cell: () => <TradeModal />,
   },
   {
     accessorKey: "price",

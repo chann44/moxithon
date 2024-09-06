@@ -1,4 +1,5 @@
 import { FansTokenTable } from "./fans-token-table";
+import { TradeModal } from "./trade-modal";
 
 export default function DashboardPage() {
   return (
