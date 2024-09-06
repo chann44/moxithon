@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "-/providers/theme-provider";
 import { SiteHeader } from "-/components/site-header";
 
 export const metadata: Metadata = {
@@ -15,13 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`dark`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="w-full max-w-7xl mx-auto">
-            <SiteHeader />
-            {children}
-          </div>
-        </ThemeProvider>
+      <body className={`bg-background text-foreground`}>
+        <div className="w-full max-w-7xl mx-auto">
+          <SiteHeader />
+          <div className="py-4">{children}</div>
+        </div>
       </body>
     </html>
   );
