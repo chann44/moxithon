@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { UserNav } from "./user-nav";
 
 export function ConnectWallet() {
-  const { ready, authenticated, logout } = usePrivy();
+  const { ready, authenticated } = usePrivy();
   const { login } = useLogin({
     onComplete(user, isNewUser, wasPreviouslyAuthenticated) {
       console.log("🔑 ✅ Login success", {

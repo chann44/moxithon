@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SiteHeader } from "-/components/site-header";
-import { PrivyProvider } from "@privy-io/react-auth";
 import Web3Providers from "-/providers/privy-providers";
 
 export const metadata: Metadata = {

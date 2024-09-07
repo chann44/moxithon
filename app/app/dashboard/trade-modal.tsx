@@ -7,12 +7,10 @@ import {
   DialogHeader,
   DialogTrigger,
   DialogTitle,
-  DialogDescription,
   DialogFooter,
 } from "-/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "-/components/ui/tabs";
 import { TradeBuyPanel } from "./trade-buy-pannle";
-import { TradeInput } from "./trade-input";
 import { TradeSellPanel } from "./trade-sell-panel";
 import { TradeTokenSelect } from "./trade-token-select";
 

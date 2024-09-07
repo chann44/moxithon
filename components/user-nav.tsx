@@ -15,7 +15,6 @@ import {
 import {
   useLogout,
   usePrivy,
-  useExperimentalFarcasterSigner,
   FarcasterWithMetadata,
 } from "@privy-io/react-auth";
 import { useRouter } from "next/navigation";
