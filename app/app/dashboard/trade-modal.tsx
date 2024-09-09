@@ -1,5 +1,3 @@
-// "use client";
-
 import { Button } from "-/components/ui/button";
 import {
   Dialog,
@@ -18,12 +16,7 @@ export function TradeModal() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button
-          className="bg-green-100 text-green-500 hover:bg-green-300 hover:text-green-500"
-          variant={"outline"}
-        >
-          Buy/Sell
-        </Button>
+        <Button>Buy/Sell</Button>
       </DialogTrigger>
       <DialogContent className="gap-y-6">
         <DialogHeader>
